@@ -13,6 +13,7 @@
     "url": "https://github.com/gpenverne/electron-docker-project/issues"
   },
   "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4",
     "electron": "^7.1.11",
     "electron-builder": "^21.2.0",
     "electron-prebuilt": "^0.32.3"
@@ -22,8 +23,18 @@
     "angular": "^1.7.9",
     "app-builder-lib": "^22.1.0",
     "bootstrap": "^4.4.1",
+    "cordova": "^9.0.0",
+    "cordova-android": "^8.1.0",
     "electron-is": "^3.0.0",
     "electron-updater": "^4.2.0"
   },
-  "private": true
+  "private": true,
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

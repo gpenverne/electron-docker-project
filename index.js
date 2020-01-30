@@ -6,5 +6,5 @@ app.on('ready', function() {
   win.on('closed', () => {
     win = null;
   });
-  win.loadURL('file://' + __dirname + '/project/ui/index.html');
+  win.loadURL('file://' + __dirname + '/www/index.html');
 });
