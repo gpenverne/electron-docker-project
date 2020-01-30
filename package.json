@@ -1,0 +1,29 @@
+{
+  "name": "electron-docker-project",
+  "version": "1.0.0",
+  "description": "Simple base for electron projects",
+  "main": "index.js",
+  "scripts": {
+    "gui": "./node_modules/.bin/electron index.js --no-sandbox"
+  },
+  "repository": "git+https://github.com/gpenverne/electron-docker-project.git",
+  "author": "gpenverne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gpenverne/electron-docker-project/issues"
+  },
+  "devDependencies": {
+    "electron": "^7.1.11",
+    "electron-builder": "^21.2.0"
+  },
+  "homepage": "https://github.com/gpenverne/tueslehero#readme",
+  "dependencies": {
+    "angular": "^1.7.9",
+    "app-builder-lib": "^22.1.0",
+    "bootstrap": "^4.4.1",
+    "electron-is": "^3.0.0",
+    "electron-prebuilt": "^0.32.3",
+    "electron-updater": "^4.2.0"
+  },
+  "private": true
+}
