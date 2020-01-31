@@ -3,8 +3,6 @@ ELECTRON = $(DOCKER)  --env="ELECTRON_ENABLE_LOGGING=1" --net=host --env="DISPLA
 NODE = $(DOCKER) "gpenverne/electron"
 NPM = $(NODE) npm
 
-#GRADLE = docker run --rm -v "$$(pwd)":/home/gradle/ -w /home/gradle gpenverne/android gradle
-
 ##
 ## DEV tools
 ## -------
@@ -20,11 +18,12 @@ install: ## Install dependencies
 
 package: ## Build a distruable binary
 	$(ELECTRON) ./node_modules/.bin/electron-builder
-	$(DOCKER) docker/android ./node_modules/.bin/cordova build
+	$(DOCKER) gpenverne/cordova ./node_modules/.bin/cordova build
+	$(DOCKER) gpenverne/cordova mv platforms/android/app/build/outputs/apk/debug/app-debug.apk dist/android.apk
 
 android: ## Add a cordova android platform
-	docker build -t "gpenverne/android" docker/android
-	$(DOCKER) docker/android ./node_modules/.bin/cordova platform add android
+	docker build -t "gpenverne/cordova" docker/cordova
+	$(DOCKER) gpenverne/cordova ./node_modules/.bin/cordova platform add android
 
 gui: ## Launch the GUI using docker
 	$(ELECTRON) npm run gui
