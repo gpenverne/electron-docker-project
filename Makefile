@@ -11,7 +11,6 @@ NPM = $(NODE) npm
 ##
 build: ## Build the docker container and install nodejs dependencies
 	docker build -t "gpenverne/electron" docker/electron
-	#docker build -t "gpenverne/android" docker/android
 	$(ELECTRON) npm install --save-dev electron
 
 install: ## Install dependencies
@@ -21,10 +20,11 @@ install: ## Install dependencies
 
 package: ## Build a distruable binary
 	$(ELECTRON) ./node_modules/.bin/electron-builder
-	# Add android
+	$(DOCKER) docker/android ./node_modules/.bin/cordova build
 
 android: ## Add a cordova android platform
-	$(ELECTRON) ./node_modules/.bin/cordova platform add android
+	docker build -t "gpenverne/android" docker/android
+	$(DOCKER) docker/android ./node_modules/.bin/cordova platform add android
 
 gui: ## Launch the GUI using docker
 	$(ELECTRON) npm run gui
